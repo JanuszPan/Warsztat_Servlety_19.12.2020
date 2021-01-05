@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-    @WebServlet(name="UserList", urlPatterns = "/user/list")
+    @WebServlet(name="UserList", urlPatterns = "/users/list")
     public class UserList extends HttpServlet {
         protected void doGet(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
-            getServletContext().getRequestDispatcher("/user/list.jsp")
+            getServletContext().getRequestDispatcher("/users/list.jsp")
                     .forward(request, response);
         }
     }
