@@ -1,5 +1,7 @@
 package pl.coderslab.users;
 
+import pl.coderslab.utils.UserDao;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +15,9 @@ import java.io.IOException;
                 throws ServletException, IOException {
             getServletContext().getRequestDispatcher("/users/list.jsp")
                     .forward(request, response);
+            UserDao userDao = new UserDao();
+            request.setAttribute("users", userDao.findAll());
+
         }
     }
 
