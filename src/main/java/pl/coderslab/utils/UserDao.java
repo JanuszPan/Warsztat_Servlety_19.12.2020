@@ -28,7 +28,7 @@ public class UserDao {
 
     //    tworzenie użytkownika
     public User create(User user) {
-        try (Connection conn = DbUtil.connect()) {
+        try (Connection conn = DbUtil.getConnection()) {
 //        trzeba jeszcze dodać identyfikator wiersza
             PreparedStatement statement = conn.prepareStatement(CREATE_USER_QUERY);
             statement.setString(1, user.getUsername());
@@ -44,7 +44,7 @@ public class UserDao {
     }
 
     public User read(int userId) {
-        try (Connection conn = DbUtil.connect()) {
+        try (Connection conn = DbUtil.getConnection()) {
             PreparedStatement statement = conn.prepareStatement(READ_USER_QUERY);
             statement.setInt(1, userId);
 //                tworzymy obiekt, który zawiera wynik zapytania
@@ -70,7 +70,7 @@ public class UserDao {
     //        metoda służąca do odczytania użytkownika dla zadanego identyfikatora.
 //        W ramach metody należy zmienić dane w bazie na podstawie danych z obiektu
     public void update(User user) {
-        try (Connection conn = DbUtil.connect()) {
+        try (Connection conn = DbUtil.getConnection()) {
             PreparedStatement statement = conn.prepareStatement(UPDATE_USER_QUERY);
             statement.setString(1, user.getUsername());
             statement.setString(2, user.getEmail());
@@ -83,7 +83,7 @@ public class UserDao {
     }
     //        metoda służąca do pobrania wszystkich obiektów klasy User
     public User[] findAll() {
-        try (Connection conn = DbUtil.connect()) {
+        try (Connection conn = DbUtil.getConnection()) {
             User[] users = new User[0];
             PreparedStatement statement = conn.prepareStatement(FIND_ALL_USERS_QUERY);
             ResultSet resultSet = statement.executeQuery();
@@ -106,7 +106,7 @@ public class UserDao {
 
     //    metoda usuwająca użytkownika z bazy
     public void delete(int userId) {
-        try (Connection conn = DbUtil.connect()) {
+        try (Connection conn = DbUtil.getConnection()) {
             PreparedStatement statement = conn.prepareStatement(DELETE_USER_QUERY);
             statement.setInt(1, userId);
             statement.executeUpdate();

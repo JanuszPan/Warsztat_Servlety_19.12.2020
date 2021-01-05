@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Warsztat_Servlety_19.12.2020" />
+        <module name="jee-user-crud" />
       </profile>
     </annotationProcessing>
   </component>
