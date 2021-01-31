@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-    @WebServlet(name="UserList", urlPatterns = "/users/list")
+    @WebServlet(name="UserList", urlPatterns = "/user/list")
     public class UserList extends HttpServlet {
         protected void doGet(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
